@@ -7,41 +7,56 @@
 
 <style>
 :root {
-  --bg-main:#0e0e0e;--bg-section:#141414;--text-main:#e6e6e6;
-  --text-muted:#aaa;--btn-bg:#fff;--btn-color:#000;
-  --overlay:rgba(0,0,0,.7);
-  --hero-gradient:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.7));
+  --bg-main: #0e0e0e;
+  --bg-section: #141414;
+  --text-main: #e6e6e6;
+  --text-muted: #aaa;
+  --text-accent: #fff;
+  --btn-bg: #fff;
+  --btn-color: #000;
+  --overlay: rgba(0,0,0,0.7);
+  --hero-gradient: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7));
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Sans KR',Arial;background:var(--bg-main);color:var(--text-main);line-height:1.7}
-nav{position:fixed;top:0;width:100%;padding:22px 0;background:rgba(14,14,14,.85);backdrop-filter:blur(10px);z-index:1000;text-align:center}
-nav a{margin:0 22px;font-size:13px;letter-spacing:3px;color:#bbb}
+body{font-family:'Noto Sans KR',Arial; background:var(--bg-main); color:var(--text-main); line-height:1.7;}
+a{text-decoration:none;color:inherit}
+nav{position:fixed; top:0; width:100%; padding:22px 0; background:rgba(14,14,14,.85); backdrop-filter:blur(10px); z-index:1000; text-align:center;}
+nav a{margin:0 22px; font-size:13px; letter-spacing:3px; color:#bbb;}
 nav a:hover{color:#fff}
-header{height:100vh;position:relative;overflow:hidden}
-.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.2s,transform 4.5s}
-.slide.active{opacity:1;transform:scale(1)}
-.hero-overlay{position:absolute;inset:0;background:var(--hero-gradient)}
-.hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10}
-.hero-text h1{font-size:48px;letter-spacing:6px;font-weight:300}
-.hero-text p{margin-top:18px;font-size:14px;letter-spacing:3px;color:var(--text-muted)}
-section{max-width:1200px;margin:0 auto;padding:150px 24px;opacity:0;transform:translateY(60px);transition:1s}
-section.show{opacity:1;transform:none}
-.section-title{text-align:center;margin-bottom:70px}
-.section-title h2{font-size:30px;letter-spacing:5px;font-weight:300}
-.section-title span{display:block;margin-top:12px;font-size:12px;color:var(--text-muted);letter-spacing:2px}
-#about{background:var(--bg-section)}
-#introText{text-align:center;max-width:820px;margin:0 auto;font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:50px}
-.card img{width:100%;height:360px;object-fit:cover;transition:.6s}
-.card:hover img{transform:scale(1.08)}
-.card p{margin-top:14px;font-size:14px;color:var(--text-muted)}
-.form{max-width:520px;margin:0 auto}
-input,select,textarea{width:100%;padding:16px;margin-bottom:14px;background:#1b1b1b;border:1px solid #333;color:#fff}
-button{width:100%;padding:16px;background:#fff;color:#000;border:none;letter-spacing:3px;cursor:pointer}
-footer{background:#0a0a0a;padding:90px 20px;text-align:center}
-#popup{display:none;position:fixed;inset:0;background:var(--overlay);align-items:center;justify-content:center;z-index:2000}
-.popup-box{background:#fff;color:#000;padding:50px;border-radius:14px;text-align:center}
-#themeToggle{position:fixed;bottom:20px;right:20px;padding:10px 16px;border:none;border-radius:6px;background:#fff;color:#000}
+header{height:100vh; position:relative; overflow:hidden;}
+.slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.08); transition:opacity 1.2s ease, transform 4.5s ease;}
+.slide.active{opacity:1; transform:scale(1);}
+.hero-overlay{position:absolute; inset:0; background:var(--hero-gradient);}
+.hero-text{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; z-index:10;}
+.hero-text h1{font-size:48px; letter-spacing:6px; font-weight:300; color:var(--text-main);}
+.hero-text p{margin-top:18px; font-size:14px; letter-spacing:3px; color:var(--text-muted);}
+section{max-width:1200px; margin:0 auto; padding:150px 24px; opacity:0; transform:translateY(60px); transition:1s ease;}
+section.show{opacity:1; transform:translateY(0);}
+.section-title{text-align:center; margin-bottom:70px;}
+.section-title h2{font-size:30px; letter-spacing:5px; font-weight:300; color:var(--text-main);}
+.section-title span{display:block; margin-top:12px; font-size:12px; color:var(--text-muted); letter-spacing:2px;}
+#about{background:var(--bg-section);}
+#introText{max-width:820px; margin:0 auto; text-align:center; white-space:pre-line; font-size:16px; color:var(--text-main);}
+#portfolio{background:var(--bg-main);}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:50px;}
+.card img{width:100%; height:360px; object-fit:cover; transition:.6s ease;}
+.card:hover img{transform:scale(1.08);}
+.card p{margin-top:14px; font-size:14px; color:var(--text-muted);}
+#estimate{background:var(--bg-section);}
+.form{max-width:520px; margin:0 auto;}
+input,select,textarea{width:100%; padding:16px; margin-bottom:14px; background:#1b1b1b; border:1px solid #333; color:var(--text-main); font-size:14px;}
+textarea{min-height:120px}
+button{width:100%; padding:16px; background:var(--btn-bg); color:var(--btn-color); border:none; letter-spacing:3px; cursor:pointer;}
+button:hover{opacity:.9}
+footer{background:#0a0a0a; padding:90px 20px; text-align:center;}
+.footer-brand{font-size:22px; letter-spacing:4px; font-weight:300; color:var(--text-main);}
+.footer-tag{margin:12px 0 34px; font-size:12px; color:var(--text-muted);}
+.footer-info{font-size:13px; color:var(--text-muted); line-height:2;}
+.footer-copy{margin-top:40px; font-size:12px; color:#666;}
+#popup{display:none; position:fixed; inset:0; background:var(--overlay); align-items:center; justify-content:center; z-index:2000;}
+.popup-box{background:#fff; color:#000; padding:50px; border-radius:14px; text-align:center;}
+.popup-box button{margin-top:20px; background:#111; color:#fff;}
+#themeToggle{position:fixed; bottom:20px; right:20px; padding:10px 16px; border:none; border-radius:6px; background:#fff; color:#000; cursor:pointer; z-index:3000;}
 </style>
 </head>
 
@@ -63,7 +78,7 @@ footer{background:#0a0a0a;padding:90px 20px;text-align:center}
 
 <section id="about">
   <div class="section-title"><h2>ABOUT</h2><span>공간의 본질을 설계하다</span></div>
-  <p id="introText">공간의 흐름과 브랜드 가치를 함께 설계하는 인테리어 디자인 스튜디오입니다.</p>
+  <p id="introText"></p>
 </section>
 
 <section id="portfolio">
@@ -74,60 +89,189 @@ footer{background:#0a0a0a;padding:90px 20px;text-align:center}
 <section id="estimate">
   <div class="section-title"><h2>CONTACT</h2><span>FREE ESTIMATE</span></div>
   <div class="form">
-    <input placeholder="이름">
-    <input placeholder="연락처">
-    <select><option>주거</option><option>상업</option><option>사무실</option></select>
-    <textarea placeholder="문의 내용"></textarea>
-    <button onclick="showPopup()">문의하기</button>
+    <input id="name" placeholder="이름">
+    <input id="phone" placeholder="연락처">
+    <select id="space">
+      <option>주거</option>
+      <option>상업</option>
+      <option>사무실</option>
+    </select>
+    <textarea id="message" placeholder="문의 내용"></textarea>
+    <button onclick="send()">문의하기</button>
   </div>
 </section>
 
 <footer>
-  <div>NAEBU INTERIOR</div>
-  <div>© 2020 NAEBU INTERIOR</div>
+  <div class="footer-brand">NAEBU INTERIOR</div>
+  <div class="footer-tag">INTERIOR · SPACE BRANDING</div>
+  <div class="footer-info">
+    T. 010-4225-1110<br>
+    E. moment0417@naver.com<br>
+    F. 0504-387-8641<br>
+    전북특별자치도 군산시<br>
+    사업자번호 401-20-85326
+  </div>
+  <div class="footer-copy">© 2020 NAEBU INTERIOR. All rights reserved.</div>
 </footer>
 
-<div id="popup"><div class="popup-box"><h3>문의 완료</h3><button onclick="popup.style.display='none'">확인</button></div></div>
+<div id="popup">
+  <div class="popup-box">
+    <h3>문의 완료</h3>
+    <p>연락드리겠습니다</p>
+    <button onclick="popup.style.display='none'">확인</button>
+  </div>
+</div>
+
 <button id="themeToggle" onclick="toggleTheme()">모드 전환</button>
 
 <script>
-const slides=['slide1.jpg','slide2.jpg','default.jpg'];
-const portfolio=[
- {filename:'portfolio1.jpg',description:'주거 인테리어'},
- {filename:'portfolio2.jpg',description:'상업 공간'}
-];
+/* ================= 기본 설정 ================= */
+const API_BASE = 'https://naebu-backend.onrender.com';
 
-const header=document.getElementById('header');
-slides.forEach((s,i)=>{
- const img=document.createElement('img');
- img.src='/images/'+s;
- img.className='slide'+(i===0?' active':'');
- header.appendChild(img);
-});
+const header = document.getElementById('header');
+const introText = document.getElementById('introText');
+const portfolioImages = document.getElementById('portfolioImages');
+const popup = document.getElementById('popup');
+const root = document.documentElement;
 
-let idx=0;
-setInterval(()=>{
- const s=document.querySelectorAll('.slide');
- s.forEach(x=>x.classList.remove('active'));
- idx=(idx+1)%s.length;
- s[idx].classList.add('active');
-},4500);
+let slideIndex = 0;
+let slideTimer = null;
+let darkMode = true;
 
-const pWrap=document.getElementById('portfolioImages');
-portfolio.forEach(p=>{
- const d=document.createElement('div');
- d.className='card';
- d.innerHTML=`<img src="/images/${p.filename}"><p>${p.description}</p>`;
- pWrap.appendChild(d);
-});
+/* ================= 콘텐츠 로드 (Render server.js 연동) ================= */
+function loadContent(){
+  fetch(`${API_BASE}/content`)
+    .then(r => r.json())
+    .then(d => {
+      /* 소개 텍스트 */
+      introText.innerText =
+        d.intro?.trim() || '공간의 본질을 설계하는 인테리어 디자인 스튜디오입니다.';
 
-function showPopup(){popup.style.display='flex'}
-let dark=true;
-function toggleTheme(){
- dark=!dark;
- document.documentElement.style.setProperty('--bg-main',dark?'#0e0e0e':'#f5f5f5');
+      /* 슬라이드 */
+      header.querySelectorAll('.slide')?.forEach(s => s.remove());
+
+      if (Array.isArray(d.slides) && d.slides.length) {
+        d.slides.forEach((s, i) => {
+          const img = document.createElement('img');
+          img.src = `${API_BASE}/uploads/${s}`;
+          img.className = 'slide' + (i === 0 ? ' active' : '');
+          header.appendChild(img);
+        });
+
+        if (slideTimer) clearInterval(slideTimer);
+        if (d.slides.length > 1) {
+          slideTimer = setInterval(nextSlide, d.slideInterval || 4500);
+        }
+      } else {
+        header.style.background =
+          `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),
+           url('${API_BASE}/uploads/default.jpg') center/cover no-repeat`;
+      }
+
+      /* 포트폴리오 */
+      portfolioImages.innerHTML = '';
+      if (Array.isArray(d.portfolioImages) && d.portfolioImages.length) {
+        d.portfolioImages.forEach(p => {
+          const div = document.createElement('div');
+          div.className = 'card';
+          div.innerHTML = `
+            <img src="${API_BASE}/uploads/${p.filename}">
+            <p>${p.description || ''}</p>
+          `;
+          portfolioImages.appendChild(div);
+        });
+      } else {
+        portfolioImages.innerHTML =
+          '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
+      }
+    })
+    .catch(err => {
+      console.error('콘텐츠 로드 실패:', err);
+    });
 }
-</script>
 
+/* ================= 슬라이드 자동 이동 ================= */
+function nextSlide(){
+  const slides = document.querySelectorAll('.slide');
+  if (slides.length < 2) return;
+
+  slides.forEach(s => s.classList.remove('active'));
+  slideIndex = (slideIndex + 1) % slides.length;
+  slides[slideIndex].classList.add('active');
+}
+
+/* ================= 스크롤 애니메이션 ================= */
+const sections = document.querySelectorAll('section');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('show');
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(s => observer.observe(s));
+} else {
+  sections.forEach(s => s.classList.add('show'));
+}
+
+/* ================= 문의 전송 (Render server.js 연동) ================= */
+function send(){
+  const nameEl = document.getElementById('name');
+  const phoneEl = document.getElementById('phone');
+  const spaceEl = document.getElementById('space');
+  const messageEl = document.getElementById('message');
+
+  if (!nameEl.value.trim() || !phoneEl.value.trim()) {
+    alert('이름과 연락처를 입력해주세요.');
+    return;
+  }
+
+  fetch(`${API_BASE}/estimate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: nameEl.value,
+      phone: phoneEl.value,
+      space: spaceEl.value,
+      message: messageEl.value
+    })
+  })
+  .then(r => r.ok ? showPopup() : alert('문의 전송 실패'))
+  .catch(() => alert('서버 연결 실패'));
+}
+
+function showPopup(){
+  popup.style.display = 'flex';
+  document.getElementById('name').value = '';
+  document.getElementById('phone').value = '';
+  document.getElementById('message').value = '';
+}
+
+/* ================= 다크 / 라이트 모드 ================= */
+function toggleTheme(){
+  darkMode = !darkMode;
+
+  if (darkMode) {
+    root.style.setProperty('--bg-main','#0e0e0e');
+    root.style.setProperty('--bg-section','#141414');
+    root.style.setProperty('--text-main','#e6e6e6');
+    root.style.setProperty('--text-muted','#aaa');
+    root.style.setProperty('--btn-bg','#fff');
+    root.style.setProperty('--btn-color','#000');
+    root.style.setProperty('--hero-gradient','linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7))');
+  } else {
+    root.style.setProperty('--bg-main','#f5f5f5');
+    root.style.setProperty('--bg-section','#fff');
+    root.style.setProperty('--text-main','#111');
+    root.style.setProperty('--text-muted','#666');
+    root.style.setProperty('--btn-bg','#111');
+    root.style.setProperty('--btn-color','#fff');
+    root.style.setProperty('--hero-gradient','linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2))');
+  }
+}
+
+/* ================= 초기 실행 ================= */
+loadContent();
+</script>
 </body>
 </html>
