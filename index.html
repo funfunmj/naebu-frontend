@@ -162,11 +162,12 @@ function loadContent(){
         if (d.slides.length > 1) {
           slideTimer = setInterval(nextSlide, d.slideInterval || 4500);
         }
-      } else {
-        header.style.background =
-          `linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),
-          url('/images/default.jpg')
-      }
+    } else {
+   header.style.background =
+    "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)), " +
+    "url('/images/default.jpg') center / cover no-repeat";
+    }
+
 
       /* 포트폴리오 */
       portfolioImages.innerHTML = '';
@@ -175,9 +176,9 @@ function loadContent(){
           const div = document.createElement('div');
           div.className = 'card';
          div.innerHTML = `
-         <img src="/images/${p.filename}">
-         <p>${p.description || ''}</p>
-          `;
+        <img src="https://naebu-backend.onrender.com/uploads/${p.filename}">
+       <p>${p.description || ''}</p>
+        `;
           portfolioImages.appendChild(div);
         });
       } else {
