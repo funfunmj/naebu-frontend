@@ -153,7 +153,7 @@ function loadContent(){
       if (Array.isArray(d.slides) && d.slides.length) {
         d.slides.forEach((s, i) => {
           const img = document.createElement('img');
-          img.src = '/images/' + s;
+          img.src = `${API_BASE}/uploads/` + s;
           img.className = 'slide' + (i === 0 ? ' active' : '');
           header.appendChild(img);
         });
@@ -163,9 +163,9 @@ function loadContent(){
           slideTimer = setInterval(nextSlide, d.slideInterval || 4500);
         }
     } else {
-   header.style.background =
-    "linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)), " +
-    "url('/images/default.jpg') center / cover no-repeat";
+header.style.background =
+  `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
+   url('${API_BASE}/uploads/default.jpg') center / cover no-repeat`;
     }
 
 
@@ -176,7 +176,7 @@ function loadContent(){
           const div = document.createElement('div');
           div.className = 'card';
          div.innerHTML = `
-        <img src="https://naebu-backend.onrender.com/uploads/${p.filename}">
+        <img src="${API_BASE}/uploads/${p.filename}">
        <p>${p.description || ''}</p>
         `;
           portfolioImages.appendChild(div);
