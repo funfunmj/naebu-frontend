@@ -147,44 +147,48 @@ function loadContent(){
       introText.innerText =
         d.intro?.trim() || '공간의 본질을 설계하는 인테리어 디자인 스튜디오입니다.';
 
+   
       /* 슬라이드 */
-      header.querySelectorAll('.slide')?.forEach(s => s.remove());
+header.querySelectorAll('.slide')?.forEach(s => s.remove());
 
-      if (Array.isArray(d.slides) && d.slides.length) {
-        d.slides.forEach((s, i) => {
-          const img = document.createElement('img');
-          img.src = `${API_BASE}/uploads/` + s;
-          img.className = 'slide' + (i === 0 ? ' active' : '');
-          header.appendChild(img);
-        });
+if (Array.isArray(d.slides) && d.slides.length) {
+  d.slides.forEach((url, i) => {
+    const img = document.createElement('img');
+    img.src = url; // 🔥 핵심
+    img.className = 'slide' + (i === 0 ? ' active' : '');
+    header.appendChild(img);
+  });
 
-        if (slideTimer) clearInterval(slideTimer);
-        if (d.slides.length > 1) {
-          slideTimer = setInterval(nextSlide, d.slideInterval || 4500);
-        }
-    } else {
+  if (slideTimer) clearInterval(slideTimer);
+  if (d.slides.length > 1) {
+    slideTimer = setInterval(nextSlide, d.slideInterval || 4500);
+  }
+}
+ else {
 header.style.background =
   `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
-   url('${API_BASE}/uploads/default.jpg') center / cover no-repeat`;
+   url('https://res.cloudinary.com/xxxx/image/upload/naebu/default.jpg')
+ center / cover no-repeat`;
     }
 
 
       /* 포트폴리오 */
-      portfolioImages.innerHTML = '';
-      if (Array.isArray(d.portfolioImages) && d.portfolioImages.length) {
-        d.portfolioImages.forEach(p => {
-          const div = document.createElement('div');
-          div.className = 'card';
-         div.innerHTML = `
-        <img src="${API_BASE}/uploads/${p.filename}">
-       <p>${p.description || ''}</p>
-        `;
-          portfolioImages.appendChild(div);
-        });
-      } else {
-        portfolioImages.innerHTML =
-          '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
-      }
+     portfolioImages.innerHTML = '';
+if (Array.isArray(d.portfolioImages) && d.portfolioImages.length) {
+  d.portfolioImages.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <img src="${p.filename}">
+      <p>${p.description || ''}</p>
+    `;
+    portfolioImages.appendChild(div);
+  });
+} else {
+  portfolioImages.innerHTML =
+    '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
+}
+
     })
     .catch(err => {
       console.error('콘텐츠 로드 실패:', err);
