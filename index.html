@@ -172,14 +172,14 @@ header.style.background =
     }
 
 
-      /* 포트폴리오 */
-     portfolioImages.innerHTML = '';
+    /* 포트폴리오 */
+portfolioImages.innerHTML = '';
 if (Array.isArray(d.portfolioImages) && d.portfolioImages.length) {
   d.portfolioImages.forEach(p => {
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <img src="${p.filename}">
+      <img src="${p.url}">
       <p>${p.description || ''}</p>
     `;
     portfolioImages.appendChild(div);
@@ -189,11 +189,6 @@ if (Array.isArray(d.portfolioImages) && d.portfolioImages.length) {
     '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
 }
 
-    })
-    .catch(err => {
-      console.error('콘텐츠 로드 실패:', err);
-    });
-}
 
 /* ================= 슬라이드 자동 이동 ================= */
 function nextSlide(){
