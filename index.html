@@ -143,10 +143,8 @@ function loadContent(){
   fetch(`${API_BASE}/content`)
     .then(r => r.json())
     .then(d => {
-
-      console.log('CONTENT:', d);   // ✅ 4️⃣ 디버그 (추가)
-
-      if (!d) return;               // ✅ 2️⃣ 방어 코드 (추가)
+      console.log('CONTENT:', d);   // 디버그 (추가)
+      if (!d) return;               //  방어 코드 (추가)
 
       /* 소개 텍스트 */
     introText.innerText =
@@ -154,16 +152,14 @@ function loadContent(){
     ? d.intro
     : '공간의 본질을 설계하는 인테리어 디자인 스튜디오입니다.';
 
-
-   
-      /* 슬라이드 */
+/* 슬라이드 */
 const oldSlides = header.querySelectorAll('.slide');
 oldSlides.forEach(s => s.remove());
 
-if (Array.isArray(d.slides) && d.slides.length) {
+if (Array.isArray(d.slides) && d.slides.length > 0) {
   d.slides.forEach((url, i) => {
     const img = document.createElement('img');
-    img.src = url; // 🔥 핵심
+    img.src = url;
     img.className = 'slide' + (i === 0 ? ' active' : '');
     header.appendChild(img);
   });
@@ -172,22 +168,20 @@ if (Array.isArray(d.slides) && d.slides.length) {
   if (d.slides.length > 1) {
     slideTimer = setInterval(nextSlide, d.slideInterval || 4500);
   }
+} else {
+  header.style.background = `
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
+    url('https://res.cloudinary.com/xxxx/image/upload/naebu/default.jpg')
+    center / cover no-repeat
+  `;
 }
- else {
-header.style.background =
-  `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)),
-   url('https://res.cloudinary.com/xxxx/image/upload/naebu/default.jpg')
- center / cover no-repeat`;
-    }
 
-
-    /* 포트폴리오 */
 /* 포트폴리오 */
 portfolioImages.innerHTML = '';
 
 if (Array.isArray(d.portfolioImages)) {
   d.portfolioImages.forEach(p => {
-    if (!p || !p.filename) return;   // ✅ 3️⃣ 핵심 방어
+    if (!p || !p.filename) return;   // 
 
     const div = document.createElement('div');
     div.className = 'card';
@@ -210,12 +204,6 @@ if (Array.isArray(d.portfolioImages)) {
     .catch(err => {
       console.error('CONTENT LOAD ERROR:', err);
     });
-}    })
-    .catch(err => {
-      console.error('CONTENT LOAD ERROR:', err);
-    });
-}
-
 
 /* ================= 슬라이드 자동 이동 ================= */
 function nextSlide(){
