@@ -143,13 +143,22 @@ function loadContent(){
   fetch(`${API_BASE}/content`)
     .then(r => r.json())
     .then(d => {
+
+      console.log('CONTENT:', d);   // ✅ 4️⃣ 디버그 (추가)
+
+      if (!d) return;               // ✅ 2️⃣ 방어 코드 (추가)
+
       /* 소개 텍스트 */
-      introText.innerText =
-        d.intro?.trim() || '공간의 본질을 설계하는 인테리어 디자인 스튜디오입니다.';
+    introText.innerText =
+  d.intro && d.intro.trim().length > 0
+    ? d.intro
+    : '공간의 본질을 설계하는 인테리어 디자인 스튜디오입니다.';
+
 
    
       /* 슬라이드 */
-header.querySelectorAll('.slide')?.forEach(s => s.remove());
+const oldSlides = header.querySelectorAll('.slide');
+oldSlides.forEach(s => s.remove());
 
 if (Array.isArray(d.slides) && d.slides.length) {
   d.slides.forEach((url, i) => {
@@ -173,21 +182,31 @@ header.style.background =
 
 
     /* 포트폴리오 */
+/* 포트폴리오 */
 portfolioImages.innerHTML = '';
-if (Array.isArray(d.portfolioImages) && d.portfolioImages.length) {
+
+if (Array.isArray(d.portfolioImages)) {
   d.portfolioImages.forEach(p => {
+    if (!p || !p.filename) return;   // ✅ 3️⃣ 핵심 방어
+
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <img src="${p.url}">
+      <img src="${p.filename}">
       <p>${p.description || ''}</p>
     `;
     portfolioImages.appendChild(div);
   });
+
+  if (!d.portfolioImages.length) {
+    portfolioImages.innerHTML =
+      '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
+  }
 } else {
   portfolioImages.innerHTML =
     '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
 }
+
 
 
 /* ================= 슬라이드 자동 이동 ================= */
