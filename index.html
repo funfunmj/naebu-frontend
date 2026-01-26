@@ -206,7 +206,15 @@ if (Array.isArray(d.portfolioImages)) {
   portfolioImages.innerHTML =
     '<p style="color:#666;text-align:center;width:100%">포트폴리오 준비중입니다.</p>';
 }
-
+    })
+    .catch(err => {
+      console.error('CONTENT LOAD ERROR:', err);
+    });
+}    })
+    .catch(err => {
+      console.error('CONTENT LOAD ERROR:', err);
+    });
+}
 
 
 /* ================= 슬라이드 자동 이동 ================= */
