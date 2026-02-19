@@ -2,56 +2,147 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<title>NAEBU INTERIOR</title>
+<title>군산 인테리어 전문 | NAEBU INTERIOR</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="description" content="군산 인테리어 전문 NAEBU INTERIOR. 상가·주거·사무실 리모델링, 무료 방문 견적, 책임 시공 A/S 보장.">
 
 <script>
 const API_BASE = 'https://naebu-backend.onrender.com';
 </script>
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
-  margin: 0;
-  padding: 40px 20px 100px; /* 하단 버튼 공간 확보 */
   font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
-}
-h1 {
-  text-align: center;
-}
-form {
-  max-width: 480px;
-  margin: 40px auto;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 12px;
-}
-input, textarea, select, button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: none;
-}
-button {
-  background: #fff;
-  color: #111;
-  font-weight: bold;
-  cursor: pointer;
-}
-.success {
-  color: #6bff9c;
-  text-align: center;
-  margin-top: 10px;
-}
-.error {
-  color: #ff6b6b;
-  text-align: center;
-  margin-top: 10px;
+  background:#111;
+  color:#eee;
+  line-height:1.6;
 }
 
-/* ===== 고정 상담 버튼 ===== */
+section {
+  padding:80px 20px;
+  text-align:center;
+}
+
+h2 {
+  margin-bottom:40px;
+  font-size:28px;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero h1 {
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.hero p {
+  font-size:18px;
+  color:#ddd;
+  margin-bottom:30px;
+}
+
+.hero a {
+  background:#fff;
+  color:#111;
+  padding:14px 30px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:6px;
+}
+
+/* ===== 강점 ===== */
+
+.features {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+}
+
+.feature {
+  max-width:260px;
+}
+
+.feature h3 {
+  margin-bottom:10px;
+}
+
+/* ===== 포트폴리오 ===== */
+
+.portfolio-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.portfolio-grid img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* ===== 회사소개 ===== */
+
+.about {
+  max-width:800px;
+  margin:auto;
+  color:#ccc;
+}
+
+/* ===== 문의폼 ===== */
+
+form {
+  max-width:500px;
+  margin:40px auto;
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:12px;
+}
+
+input, textarea, select, button {
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:6px;
+  border:none;
+}
+
+button {
+  background:#fff;
+  color:#111;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.success { color:#6bff9c; }
+.error { color:#ff6b6b; }
+
+/* ===== 푸터 ===== */
+
+footer {
+  background:#000;
+  padding:40px 20px;
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+}
+
+/* ===== 하단 고정 상담 ===== */
 
 .floating-consult {
   position: fixed;
@@ -60,93 +151,116 @@ button {
   width: 100%;
   display: flex;
   z-index: 9999;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
 }
 
 .floating-consult a {
   flex: 1;
   text-align: center;
-  padding: 16px 0;
-  font-size: 15px;
+  padding: 14px 0;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.consult-call {
-  background: #222;
-  color: white;
-}
+.consult-call { background:#222; color:#fff; }
+.consult-kakao { background:#FEE500; color:#111; }
 
-.consult-call:hover {
-  background: #000;
-}
-
-.consult-kakao {
-  background: #FEE500;
-  color: #111;
-}
-
-.consult-kakao:hover {
-  background: #ffd900;
-}
-
-/* 데스크탑에서는 오른쪽 하단 작은 박스 */
-
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .floating-consult {
-    width: auto;
-    left: auto;
-    right: 20px;
-    bottom: 20px;
-    flex-direction: column;
-    border-radius: 14px;
-    overflow: hidden;
+    width:auto;
+    right:20px;
+    left:auto;
+    bottom:20px;
+    flex-direction:column;
+    border-radius:10px;
+    overflow:hidden;
   }
-
-  .floating-consult a {
-    width: 220px;
-    padding: 14px 0;
-  }
+  .floating-consult a { width:220px; }
 }
 </style>
 </head>
 <body>
 
-<h1>NAEBU INTERIOR</h1>
-<p style="text-align:center; color:#aaa;">
-  인테리어 상담 문의를 남겨주세요
-</p>
+<!-- HERO -->
+<section class="hero">
+  <h1>군산 인테리어 전문</h1>
+  <p>상가 · 주거 · 사무실 리모델링<br>무료 방문 견적 · 책임 시공</p>
+  <a href="#contact">무료 견적 받기</a>
+</section>
 
-<form id="estimateForm">
-  <input name="name" placeholder="이름" required />
-  <input name="phone" placeholder="연락처" required />
+<!-- 강점 -->
+<section>
+  <h2>NAEBU INTERIOR</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>✔ 무료 방문 견적</h3>
+      <p>군산 전 지역 방문 상담</p>
+    </div>
+    <div class="feature">
+      <h3>✔ 책임 시공</h3>
+      <p>직접 관리 · 중간 마진 없음</p>
+    </div>
+    <div class="feature">
+      <h3>✔ A/S 보장</h3>
+      <p>시공 후 관리까지 책임</p>
+    </div>
+  </div>
+</section>
 
-  <select name="space" required>
-    <option value="">공간 선택</option>
-    <option value="주거">주거</option>
-    <option value="상가">상가</option>
-    <option value="사무실">사무실</option>
-  </select>
+<!-- 포트폴리오 -->
+<section>
+  <h2>PORTFOLIO</h2>
+  <div class="portfolio-grid">
+    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea">
+  </div>
+</section>
 
-  <input name="budget" placeholder="예상 금액 (예: 3000만원)" />
+<!-- 회사소개 -->
+<section>
+  <h2>ABOUT US</h2>
+  <div class="about">
+    군산 지역 인테리어 전문 업체 NAEBU INTERIOR입니다.<br><br>
+    상가·주거·사무실 리모델링을 전문으로 하며<br>
+    상담부터 시공, A/S까지 책임지고 관리합니다.
+  </div>
+</section>
 
-  <textarea name="message" rows="5" placeholder="문의 내용"></textarea>
+<!-- 문의 -->
+<section id="contact">
+  <h2>무료 견적 문의</h2>
 
-  <button type="submit">문의하기</button>
+  <form id="estimateForm">
+    <input name="name" placeholder="이름" required />
+    <input name="phone" placeholder="연락처" required />
 
-  <div id="result"></div>
-</form>
+    <select name="space" required>
+      <option value="">공간 선택</option>
+      <option value="주거">주거</option>
+      <option value="상가">상가</option>
+      <option value="사무실">사무실</option>
+    </select>
 
-<!-- ===== 하단 고정 상담 버튼 ===== -->
+    <input name="budget" placeholder="예상 금액 (예: 3000만원)" />
+    <textarea name="message" rows="5" placeholder="문의 내용"></textarea>
 
+    <button type="submit">무료 견적 신청</button>
+    <div id="result"></div>
+  </form>
+</section>
+
+<!-- 푸터 -->
+<footer>
+  상호명: NAEBU INTERIOR<br>
+  주소: 전라북도 군산시 <br>
+  연락처: 010-4225-1110<br>
+  ©NAEBU INTERIOR All Rights Reserved.
+</footer>
+
+<!-- 하단 상담 버튼 -->
 <div class="floating-consult">
-  <a href="tel:01042251110" class="consult-call">
-    📞 5분 상담 가능
-  </a>
-  <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="consult-kakao">
-    💬 카카오 빠른 상담
-  </a>
+  <a href="tel:01042251110" class="consult-call">📞 전화 상담</a>
+  <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="consult-kakao">💬 카카오 상담</a>
 </div>
 
 <script>
