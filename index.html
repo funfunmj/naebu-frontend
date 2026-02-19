@@ -32,37 +32,44 @@ h2 {
 }
 
 /* ===== HERO ===== */
-
 .hero {
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.hero h1 {
-  font-size:40px;
-  margin-bottom:20px;
+.hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
 }
 
-.hero p {
-  font-size:18px;
-  color:#ddd;
-  margin-bottom:30px;
+.hero-slide.active {
+  opacity: 1;
 }
 
-.hero a {
-  background:#fff;
-  color:#111;
-  padding:14px 30px;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:6px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
 }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
 
 /* ===== 강점 ===== */
 
@@ -182,9 +189,17 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>군산 인테리어 전문</h1>
-  <p>상가 · 주거 · 사무실 리모델링<br>무료 방문 견적 · 책임 시공</p>
-  <a href="#contact">무료 견적 받기</a>
+
+  <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1600210492493-0946911123ea')"></div>
+
+  <div class="hero-content">
+    <h1>군산 인테리어 전문</h1>
+    <p>상가 · 주거 · 사무실 리모델링<br>무료 방문 견적 · 책임 시공</p>
+    <a href="#contact">무료 견적 받기</a>
+  </div>
+
 </section>
 
 <!-- 강점 -->
@@ -197,7 +212,7 @@ footer {
     </div>
     <div class="feature">
       <h3>✔ 책임 시공</h3>
-      <p>직접 관리 · 중간 마진 없음</p>
+      <p>직접 관리 </p>
     </div>
     <div class="feature">
       <h3>✔ A/S 보장</h3>
@@ -292,6 +307,16 @@ form.addEventListener('submit', async (e) => {
     result.innerHTML = '<div class="error">전송 실패. 잠시 후 다시 시도해주세요.</div>';
   }
 });
+// 히어로 슬라이드 자동 전환
+const slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+
+setInterval(() => {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}, 4000);
+
 </script>
 
 </body>
