@@ -12,7 +12,7 @@ const API_BASE = 'https://naebu-backend.onrender.com';
 <style>
 body {
   margin: 0;
-  padding: 40px 20px;
+  padding: 40px 20px 100px; /* 하단 버튼 공간 확보 */
   font-family: Arial, sans-serif;
   background: #111;
   color: #eee;
@@ -50,6 +50,65 @@ button {
   text-align: center;
   margin-top: 10px;
 }
+
+/* ===== 고정 상담 버튼 ===== */
+
+.floating-consult {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
+}
+
+.floating-consult a {
+  flex: 1;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.consult-call {
+  background: #222;
+  color: white;
+}
+
+.consult-call:hover {
+  background: #000;
+}
+
+.consult-kakao {
+  background: #FEE500;
+  color: #111;
+}
+
+.consult-kakao:hover {
+  background: #ffd900;
+}
+
+/* 데스크탑에서는 오른쪽 하단 작은 박스 */
+
+@media (min-width: 768px) {
+  .floating-consult {
+    width: auto;
+    left: auto;
+    right: 20px;
+    bottom: 20px;
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .floating-consult a {
+    width: 220px;
+    padding: 14px 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -78,6 +137,17 @@ button {
 
   <div id="result"></div>
 </form>
+
+<!-- ===== 하단 고정 상담 버튼 ===== -->
+
+<div class="floating-consult">
+  <a href="tel:01042251110" class="consult-call">
+    📞 5분 상담 가능
+  </a>
+  <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="consult-kakao">
+    💬 카카오 빠른 상담
+  </a>
+</div>
 
 <script>
 const form = document.getElementById('estimateForm');
