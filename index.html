@@ -183,6 +183,17 @@ footer {
   }
   .floating-consult a { width:220px; }
 }
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>
 </head>
 <body>
@@ -203,7 +214,7 @@ footer {
 </section>
 
 <!-- 강점 -->
-<section>
+<section class="fade-up">
   <h2>NAEBU INTERIOR</h2>
   <div class="features">
     <div class="feature">
@@ -222,7 +233,7 @@ footer {
 </section>
 
 <!-- 포트폴리오 -->
-<section>
+<section class="fade-up">
   <h2>PORTFOLIO</h2>
   <div class="portfolio-grid">
     <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea">
@@ -232,7 +243,7 @@ footer {
 </section>
 
 <!-- 회사소개 -->
-<section>
+<section class="fade-up">
   <h2>ABOUT US</h2>
   <div class="about">
     군산 지역 인테리어 전문 업체 NAEBU INTERIOR입니다.<br><br>
@@ -242,7 +253,7 @@ footer {
 </section>
 
 <!-- 문의 -->
-<section id="contact">
+<section id="contact" class="fade-up">
   <h2>무료 견적 문의</h2>
 
   <form id="estimateForm">
@@ -337,6 +348,19 @@ portfolioImages.forEach(img => {
 modal.addEventListener('click', () => {
   modal.style.display = 'none';
 });
+
+// 스크롤 애니메이션
+const fadeElements = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+fadeElements.forEach(el => observer.observe(el));
 
 </script>
 
