@@ -353,6 +353,39 @@ body {
   padding-top: 80px;
 }
 
+/* ===== 프로젝트 프로세스 ===== */
+
+#process {
+  background:#111;
+}
+
+.process-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:40px;
+  max-width:1000px;
+  margin:60px auto 0;
+}
+
+.process-item span {
+  display:block;
+  font-size:14px;
+  letter-spacing:2px;
+  color:#777;
+  margin-bottom:10px;
+}
+
+.process-item h3 {
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.process-item p {
+  font-size:14px;
+  color:#bbb;
+  line-height:1.6;
+}
+
 </style>
 </head>
 <body>
@@ -515,6 +548,39 @@ body {
       <h4>Residential Project</h4>
     </div>
   </div>
+
+  </div>
+</section>
+
+<!-- 프로젝트 진행 프로세스 -->
+<section id="process">
+  <h2>PROJECT PROCESS</h2>
+
+  <div class="process-grid">
+
+    <div class="process-item">
+      <span>01</span>
+      <h3>상담 및 현장 확인</h3>
+      <p>공간의 목적과 조건을 면밀히 검토합니다.</p>
+    </div>
+
+    <div class="process-item">
+      <span>02</span>
+      <h3>디자인 제안 및 견적</h3>
+      <p>합리적인 방향을 제안하고 명확한 견적을 제공합니다.</p>
+    </div>
+
+    <div class="process-item">
+      <span>03</span>
+      <h3>시공 및 현장 관리</h3>
+      <p>일정과 품질을 동시에 관리합니다.</p>
+    </div>
+
+    <div class="process-item">
+      <span>04</span>
+      <h3>사후 관리</h3>
+      <p>완료 이후에도 지속적인 관계를 유지합니다.</p>
+    </div>
 
   </div>
 </section>
