@@ -264,14 +264,42 @@ h2 {
 .success { color:#6bff9c; }
 .error { color:#ff6b6b; }
 
-/* ===== 푸터 ===== */
+/* ===== 푸터 업그레이드 ===== */
 
 footer {
   background:#000;
-  padding:40px 20px;
+  padding:80px 20px;
   text-align:center;
+}
+
+.footer-inner {
+  max-width:800px;
+  margin:0 auto;
+}
+
+footer h3 {
+  font-weight:500;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+.footer-sub {
+  color:#777;
+  margin-bottom:30px;
   font-size:14px;
+  letter-spacing:2px;
+}
+
+.footer-info p {
   color:#aaa;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.copyright {
+  margin-top:40px;
+  font-size:12px;
+  color:#555;
 }
 
 /* ===== 하단 고정 상담 ===== */
@@ -614,10 +642,20 @@ body {
 
 <!-- 푸터 -->
 <footer>
-  상호명: NAEBU INTERIOR<br>
-  주소: 전라북도 군산시 <br>
-  연락처: 010-4225-1110<br>
-  ©NAEBU INTERIOR All Rights Reserved.
+  <div class="footer-inner">
+    <h3>NAEBU INTERIOR</h3>
+    <p class="footer-sub">Interior Design & Build</p>
+
+    <div class="footer-info">
+      <p>Based in Gunsan</p>
+      <p>Serving: 군산 · 전주 · 익산 · 김제 · 서천</p>
+      <p>Email: moment0417@naver.com</p>
+    </div>
+
+    <p class="copyright">
+      © NAEBU INTERIOR. All rights reserved.
+    </p>
+  </div>
 </footer>
 
 <!-- 하단 상담 버튼 -->
