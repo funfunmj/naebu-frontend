@@ -207,29 +207,58 @@ h2 {
   border-radius: 8px;
 }
 
-/* ===== 문의폼 ===== */
+/* ===== 문의폼 (브랜드형) ===== */
 
-form {
-  max-width:500px;
-  margin:40px auto;
-  background:#1e1e1e;
-  padding:20px;
-  border-radius:12px;
+#contact {
+  background: #0e0e0e;
 }
 
-input, textarea, select, button {
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border-radius:6px;
-  border:none;
+#contact form {
+  max-width: 600px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-button {
-  background:#fff;
-  color:#111;
-  font-weight:bold;
-  cursor:pointer;
+#contact input,
+#contact select,
+#contact textarea {
+  background: transparent;
+  border: 1px solid #333;
+  padding: 14px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+#contact input:focus,
+#contact select:focus,
+#contact textarea:focus {
+  border-color: #777;
+}
+
+#contact button {
+  margin-top: 10px;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#contact button:hover {
+  background: #fff;
+  color: #111;
+}
+
+.contact-sub {
+  color: #bbb;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 .success { color:#6bff9c; }
@@ -492,7 +521,11 @@ body {
 
 <!-- 문의 -->
 <section id="contact">
-  <h2>무료 견적 문의</h2>
+  <h2>PROJECT CONSULTING</h2>
+<p class="contact-sub">
+공간에 대한 간단한 정보를 남겨주시면,
+검토 후 순차적으로 연락드리겠습니다.
+</p>
 
   <form id="estimateForm">
     <input name="name" placeholder="이름" required />
@@ -508,7 +541,7 @@ body {
     <input name="budget" placeholder="예상 금액 (예: 3000만원)" />
     <textarea name="message" rows="5" placeholder="문의 내용"></textarea>
 
-    <button type="submit">무료 견적 신청</button>
+   <button type="submit">상담 요청하기</button>
     <div id="result"></div>
   </form>
 </section>
