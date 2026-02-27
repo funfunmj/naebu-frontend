@@ -40,11 +40,32 @@ section{
   gap:60px;
   align-items:center;
   margin-bottom:100px;
+  padding-bottom:80px;
+  border-bottom:1px solid rgba(255,255,255,0.08); /* 3️⃣ 구분 라인  */
+}
+
+.guide-block:last-child{
+  border-bottom:none;
 }
 
 .guide-block img{
   width:100%;
-  border-radius:12px;
+  height:350px;
+  object-fit:cover;
+  border-radius:16px;
+  transition:0.4s ease;
+}
+
+/* 이미지 살짝 확대 효과 */
+.guide-block img:hover{
+  transform:scale(1.05);
+}
+
+.text-box{
+  background:rgba(255,255,255,0.05);  /* 2️⃣ 반투명 배경  */
+  padding:40px;
+  border-radius:16px;
+  backdrop-filter:blur(8px);
 }
 
 .text-box h2{
@@ -55,11 +76,31 @@ section{
   padding-left:20px;
   line-height:1.8;
   color:#ccc;
+  margin-bottom:30px;
 }
 
+/* 4️⃣ 버튼 스타일  */
+.cta-btn{
+  display:inline-block;
+  padding:12px 28px;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:30px;
+  transition:0.3s ease;
+}
+
+.cta-btn:hover{
+  background:#ddd;
+}
 @media(max-width:900px){
   .guide-block{
     grid-template-columns:1fr;
+  }
+
+  .guide-block img{
+    height:260px;
   }
 }
 </style>
@@ -85,6 +126,7 @@ section{
         <li>내구성 높은 타일 바닥</li>
         <li>위생과 안정감을 고려한 톤 설계</li>
       </ul>
+     <a href="/contact.html" class="cta-btn">상담 문의하기</a>
     </div>
   </div>
 
@@ -99,6 +141,7 @@ section{
         <li>간접조명 + 디자인 천장</li>
         <li>브랜드 분위기 중심 설계</li>
       </ul>
+    <a href="/contact.html" class="cta-btn">상담 문의하기</a>
     </div>
   </div>
 
@@ -113,6 +156,7 @@ section{
         <li>청소 유지관리 고려 설계</li>
         <li>따뜻한 우드 + 파스텔톤 마감</li>
       </ul>
+     <a href="/contact.html" class="cta-btn">상담 문의하기</a>
     </div>
   </div>
 
