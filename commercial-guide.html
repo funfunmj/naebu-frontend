@@ -42,7 +42,7 @@ section{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
-  align-items:center;
+  align-items:stretch;
   margin-bottom:100px;
   padding-bottom:80px;
   border-bottom:1px solid rgba(255,255,255,0.08); /* 3️⃣ 구분 라인  */
@@ -70,6 +70,9 @@ section{
   padding:40px;
   border-radius:16px;
   backdrop-filter:blur(8px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .text-box h2{
