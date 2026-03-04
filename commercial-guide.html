@@ -38,20 +38,27 @@ section{
   margin:auto;
 }
 
+/* 인트로 영역 */
+.intro-box{
+  margin-bottom:60px;
+}
+
+/* 가이드 블록 */
 .guide-block{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
   align-items:center;
-  margin-bottom:100px;
-  padding-bottom:80px;
-  border-bottom:1px solid rgba(255,255,255,0.08); /* 3️⃣ 구분 라인  */
+  margin-bottom:80px;
+  padding-bottom:60px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .guide-block:last-child{
   border-bottom:none;
 }
 
+/* 이미지 */
 .guide-block img{
   width:100%;
   height:350px;
@@ -60,19 +67,16 @@ section{
   transition:0.4s ease;
 }
 
-/* 이미지 살짝 확대 효과 */
 .guide-block img:hover{
   transform:scale(1.05);
 }
 
+/* 설명 박스 */
 .text-box{
-  background:rgba(255,255,255,0.05);  /* 2️⃣ 반투명 배경  */
+  background:rgba(255,255,255,0.05);
   padding:40px;
   border-radius:16px;
   backdrop-filter:blur(8px);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
 }
 
 .text-box h2{
@@ -86,54 +90,43 @@ section{
   margin-bottom:30px;
 }
 
-.intro-box{
-  margin-bottom:120px;
-}
-
-/* 4️⃣ 버튼 스타일  */
-.cta-btn{
-  display:inline-block;
-  padding:12px 28px;
-  background:#fff;
-  color:#111;
-  text-decoration:none;
-  font-weight:600;
-  border-radius:30px;
-  transition:0.3s ease;
-}
-
-.cta-btn:hover{
-  background:#ddd;
+/* 버튼 영역 정렬 */
+.contact-row{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
 /* 카카오 버튼 */
 .kakao-btn{
   display:inline-block;
-  padding:14px 30px;
+  padding:14px 28px;
   background:#FEE500;
   color:#111;
   font-weight:700;
   text-decoration:none;
   border-radius:30px;
   transition:0.3s ease;
-  margin-right:15px;
 }
 
 .kakao-btn:hover{
   transform:translateY(-2px);
 }
 
-/* 전화 링크 */
+/* 전화번호 */
 .tel-link{
-  display:inline-block;
-  color:#aaa;
-  font-size:14px;
+  font-size:16px;
+  font-weight:600;
+  color:#fff;
   text-decoration:none;
 }
 
 .tel-link:hover{
-  color:#fff;
+  opacity:0.8;
 }
+
+/* 모바일 */
 @media(max-width:900px){
   .guide-block{
     grid-template-columns:1fr;
@@ -150,91 +143,116 @@ section{
 
 <header>
   <h1>군산 상업 공간 인테리어 가이드</h1>
- <p>
-병원, 사무실, 카페, 학원, 네일·피부·마사지샵, 호프집 등 
-다양한 상업 공간은 업종에 따라 동선, 구조, 마감 선택이 달라집니다.
-
-NAEBU INTERIOR는 공간의 목적과 브랜드 이미지를 고려하여 
-목공 가벽 구조 설계와 마감 디테일을 중심으로 맞춤 시공을 진행합니다.
-</p>
+  <p>
+  병원, 사무실, 카페, 학원, 네일·피부·마사지샵, 호프집 등 
+  다양한 상업 공간은 업종에 따라 동선과 구조 설계가 달라집니다.
+  NAEBU INTERIOR는 공간 목적과 브랜드 이미지를 고려한 맞춤 시공을 진행합니다.
+  </p>
 </header>
 
-<section class="intro-section">
+<section>
   <div class="text-box intro-box">
-    <h2 style="margin-bottom:20px;">업종 맞춤 설계가 필요한 이유</h2>
-
+    <h2>업종 맞춤 설계가 필요한 이유</h2>
     <ul style="list-style:none; padding:0; line-height:2; color:#ccc;">
-      <li><strong>의료·뷰티 공간</strong> – 청결 이미지와 안정감을 고려한 마감 설계</li>
-      <li><strong>카페·외식 공간</strong> – 브랜드 분위기를 살리는 가벽 및 포인트 마감</li>
-      <li><strong>사무·교육 공간</strong> – 효율적인 동선과 기능 중심 구조 설계</li>
-      <li><strong>유흥·서비스 업종</strong> – 분위기 연출과 내구성을 고려한 자재 선택</li>
+      <li>의료·뷰티 공간 – 청결 이미지 중심 설계</li>
+      <li>카페·외식 공간 – 브랜드 분위기 연출</li>
+      <li>사무·교육 공간 – 동선과 효율 중심 구조</li>
+      <li>서비스 업종 – 무드와 내구성 고려 설계</li>
     </ul>
   </div>
 </section>
 
 <section>
-  <!-- 병원 -->
-  <div class="guide-block">
-    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
-    <div class="text-box">
-      <h2>병원 · 의원</h2>
-      <ul>
-        <li>목공 가벽 + 방음 보강 구조</li>
-        <li>깔끔한 도장 마감</li>
-        <li>내구성 높은 타일 바닥</li>
-        <li>위생과 안정감을 고려한 톤 설계</li>
-      </ul>
-    <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">
-카카오톡 상담하기
-</a>
 
-<a href="tel:010-4225-1110" class="tel-link">
-또는 010-4225-1110 전화하기
-</a>
+<!-- 병원 -->
+<div class="guide-block">
+  <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
+  <div class="text-box">
+    <h2>병원 · 의원</h2>
+    <ul>
+      <li>목공 가벽 + 방음 보강 구조</li>
+      <li>위생 중심 도장 마감</li>
+      <li>내구성 높은 바닥재</li>
+      <li>안정감 있는 톤 설계</li>
+    </ul>
+    <div class="contact-row">
+      <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">카카오 상담</a>
+      <a href="tel:01042251110" class="tel-link">010-4225-1110</a>
     </div>
   </div>
+</div>
 
-  <!-- 카페 -->
-  <div class="guide-block">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop">
-    <div class="text-box">
-      <h2>카페 · 베이커리</h2>
-      <ul>
-        <li>오픈형 목공 구조</li>
-        <li>우드 텍스처 마감</li>
-        <li>간접조명 + 디자인 천장</li>
-        <li>브랜드 분위기 중심 설계</li>
-      </ul>
-        <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">
-카카오톡 상담하기
-</a>
-
-<a href="tel:010-1234-5678" class="tel-link">
-또는 010-4225-1110 전화하기
-</a>
+<!-- 카페 -->
+<div class="guide-block">
+  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+  <div class="text-box">
+    <h2>카페 · 베이커리</h2>
+    <ul>
+      <li>오픈형 목공 구조</li>
+      <li>우드 텍스처 마감</li>
+      <li>간접조명 중심 설계</li>
+      <li>브랜드 분위기 연출</li>
+    </ul>
+    <div class="contact-row">
+      <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">카카오 상담</a>
+      <a href="tel:01042251110" class="tel-link">010-4225-1110</a>
     </div>
   </div>
+</div>
 
-  <!-- 애견샵 -->
-  <div class="guide-block">
-    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=1200&auto=format&fit=crop">
-    <div class="text-box">
-      <h2>애견샵 · 애견호텔</h2>
-      <ul>
-        <li>내구성 높은 목공 구조</li>
-        <li>방수 기능성 바닥재</li>
-        <li>청소 유지관리 고려 설계</li>
-        <li>따뜻한 우드 + 파스텔톤 마감</li>
-      </ul>
-         <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">
-카카오톡 상담하기
-</a>
-
-<a href="tel:010-1234-5678" class="tel-link">
-또는 010-4225-1110 전화하기
-</a>
+<!-- 뷰티 -->
+<div class="guide-block">
+  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+  <div class="text-box">
+    <h2>뷰티 · 네일 · 피부샵</h2>
+    <ul>
+      <li>프라이빗 공간 분리</li>
+      <li>부드러운 톤 도장 마감</li>
+      <li>간접조명 설계</li>
+      <li>청결 이미지 강조</li>
+    </ul>
+    <div class="contact-row">
+      <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">카카오 상담</a>
+      <a href="tel:01042251110" class="tel-link">010-4225-1110</a>
     </div>
   </div>
+</div>
+
+<!-- 사무/교육 -->
+<div class="guide-block">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c">
+  <div class="text-box">
+    <h2>사무실 · 학원 · 교육 공간</h2>
+    <ul>
+      <li>업무 효율 중심 공간 구성</li>
+      <li>가벽 활용 구조 설계</li>
+      <li>차분한 컬러 톤 적용</li>
+      <li>집중도 고려 레이아웃</li>
+    </ul>
+    <div class="contact-row">
+      <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">카카오 상담</a>
+      <a href="tel:01042251110" class="tel-link">010-4225-1110</a>
+    </div>
+  </div>
+</div>
+
+<!-- 서비스 -->
+<div class="guide-block">
+  <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b">
+  <div class="text-box">
+    <h2>호프 · BAR · 서비스 업종</h2>
+    <ul>
+      <li>방음 고려 목공 구조</li>
+      <li>무드 조명 설계</li>
+      <li>내구성 높은 마감재</li>
+      <li>분위기 중심 포인트 디자인</li>
+    </ul>
+    <div class="contact-row">
+      <a href="https://open.kakao.com/o/s1xvVfhi" target="_blank" class="kakao-btn">카카오 상담</a>
+      <a href="tel:01042251110" class="tel-link">010-4225-1110</a>
+    </div>
+  </div>
+</div>
 
 </section>
 
