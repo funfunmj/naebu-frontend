@@ -352,6 +352,40 @@ footer h3 {
   .floating-consult a { width:220px; }
 }
 
+.floating-contact{
+position:fixed;
+right:30px;
+bottom:40px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:999;
+}
+
+.floating-contact a{
+padding:14px 20px;
+border-radius:30px;
+font-weight:600;
+text-decoration:none;
+}
+
+.kakao-float{
+background:#FEE500;
+color:#111;
+}
+
+.tel-float{
+background:#fff;
+color:#111;
+}
+
+/* 모바일에서는 숨김 */
+@media(max-width:900px){
+.floating-contact{
+display:none;
+}
+}
+
 /* ===== 상단 네비게이션 ===== */
 
 .navbar {
@@ -482,6 +516,48 @@ body {
 
 .guide-card:hover {
   transform:translateY(-6px);
+}
+/* PC에서 상담 버튼 우측 하단으로 변경 */
+@media(min-width:901px){
+
+.floating-consult{
+position:fixed;
+right:30px;
+bottom:40px;
+left:auto;
+width:auto;
+flex-direction:column;
+gap:10px;
+z-index:999;
+}
+
+.floating-consult a{
+padding:14px 20px;
+border-radius:30px;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+}
+
+/* 모바일은 기존 하단 유지 */
+@media(max-width:900px){
+
+.floating-consult{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+}
+
+.floating-consult a{
+flex:1;
+text-align:center;
+padding:16px;
+}
+
 }
 
 </style>
